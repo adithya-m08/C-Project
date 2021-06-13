@@ -34,7 +34,6 @@ while (choice != 0)
 			scanf("%d/%d/%d", &c.dd, &c.mm, &c.yy);
     	    		printf(" Todays date is: %02d/%02d/%d\n", day, month, year);
 			i = date_verification(c.dd, c.mm, c.yy);
-			//printf("i=%d\n",i);
 			if(i)
 				{
 				if (day >= c.dd && c.mm >=month && (year- c.yy) >= 18 || (year - c.yy) >= 18)
@@ -46,7 +45,6 @@ while (choice != 0)
 				//else
 					//printf("Your date is invalid\n");
 				}
-			//printf("counter=%d\n",counter);
 			if (counter)
 					{
 						sprintf(c.dob,"%d/%d/%d",c.dd,c.mm,c.yy); //sprintf to convert int to str
