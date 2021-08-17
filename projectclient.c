@@ -31,7 +31,7 @@ int main()
 			printf("\nEnter Your Name: ");
 			fflush(stdin);
 			scanf("%[^\n]s", &c.name);
-			printf("\nEnter candidate date of birth DD/MM/YYYY : ");
+			printf("\nEnter voter's date of birth DD/MM/YYYY : ");
 			scanf("%d/%d/%d", &c.dd, &c.mm, &c.yy);
 			printf("Today's date is: %02d/%02d/%d\n\n", day, month, year);
 
