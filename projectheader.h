@@ -5,8 +5,7 @@ typedef struct
 	int dd;
 	int mm;
 	int yy;
-}candidate;
+} candidate;
 
 int date_verification(int dd, int mm, int yy);
 void final_entry(candidate c);
-
