@@ -1,8 +1,9 @@
-#include "projectheader.h"
+#include "finalprojectheader.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
 #include <time.h>
+#include <string.h>
 
 int IsLeapYear(int year)
 {
@@ -55,8 +56,96 @@ void final_entry(candidate c)
 		printf("Your secret code is: %d\n", rand());
 		fprintf(fp1, "%d\n", rand());
 		fclose(fp1);
-		printf("Enter any key to exit\n");
+		printf("Enter any key to continue\n");
 		getch();
 		system("cls");
 	}
 }
+
+void entry_election_candidates(int no_of_candidates)
+{
+	FILE *fp;
+	fp = fopen("candidate.txt", "a+");
+	char candidate_name[20];
+	int j = 1;
+	for (int i = 1; i <= no_of_candidates; i++)
+	{
+		printf("%d. CANDIDATES NAME: ", i);
+		fflush(stdin);
+		scanf("%[^\n]s", candidate_name);
+		printf("\n");
+		fputs(candidate_name, fp);
+		fprintf(fp, "\n");
+	}
+	fclose(fp);
+}
+
+void election()
+{
+	FILE *fp;
+	fp = fopen("candidate.txt", "a+");
+	char line[100];
+	char s_code[20];
+	char c_name[20];
+	char secret_code[5];
+	int j = 1;
+	int ctr;
+	int crt1 = 0;
+	int crt2 = 0;
+	int crt3 = 0;
+	secret_code;
+	int choice;
+	while ((fgets(c_name, 100, fp)) != NULL)
+	{
+		printf("%d.", j);
+		printf("%s", c_name);
+		printf("\n");
+		j++;
+	}
+
+	printf("WELCOME\n");
+	printf("Enter ypur secret code: ");
+	printf("\n");
+	scanf("%s", &secret_code);
+	//printf("%s",secret_code);
+	FILE *fp1;
+	fp1 = fopen("secretcode.txt", "a+");
+	while ((fgets(s_code, 100, fp1)) != NULL)
+	{
+		if (strcmp(s_code, secret_code) == 0)
+		{
+			ctr = 1;
+		}
+	}
+
+	if (ctr == 1)
+	{
+		printf("enter your choice: ");
+		scanf("%d", &choice);
+		system("cls");
+		while (choice != 0)
+		{
+			switch (choice)
+			{
+			case 1:
+			{
+				crt1++;
+				break;
+			}
+			case 2:
+			{
+				crt2++;
+				break;
+			}
+			case 3:
+			{
+				crt3++;
+				break;
+			}
+			}
+		}
+	}
+	else
+		printf("invalid code\n");
+}
+

@@ -6,7 +6,7 @@
 
 int main()
 {
-	int day, month, year, choice;
+	int day, month, year, choice, no_of_candidates;
 	time_t now;
 	time(&now);
 	struct tm *local = localtime(&now);
@@ -15,18 +15,19 @@ int main()
 	year = local->tm_year + 1900; // get year since 1900
 
 	printf("1.ENROLLING\n");
-	printf("2.ELECTION\n");
+	printf("2.ELECTION CANDIDATES\n");
+	printf("3.ELECTION\n");
 	printf("ENTER YOUR CHOICE: ");
 	scanf("%d", &choice);
+
+	candidate c;
+	int mm, yy, dd;
 
 	while (choice != 0)
 	{
 		switch (choice)
 		{
 		case 1:
-		{
-			candidate c = {0};
-			int tyy, tdd, tmm, mm, yy, dd;
 			printf("\nEnter Your Name: ");
 			fflush(stdin);
 			scanf("%[^\n]s", &c.name);
@@ -50,14 +51,28 @@ int main()
 
 			else
 				printf("Invalid Date\n");
-		}
-			/*case 2: 
+			break;
+
+		case 2:
+			printf("Enter the Number of candidates stanidng in election: ");
+			scanf("%d", &no_of_candidates);
+			printf("\n");
+			entry_election_candidates(no_of_candidates);
+			break;
+
+		case 3:
 		{
-            		ELECTION();
-            		break; 
-		}*/
-			choice = 0;
+			election();
 		}
-		return 0;
+		break;
+		}
+		
+		printf("0.EXIT\n");
+		printf("1.ENROLLING\n");
+		printf("2.ELECTION CANDIDATES\n");
+		printf("3.ELECTION\n");
+		printf("ENTER YOUR CHOICE: ");
+		scanf("%d", &choice);
 	}
+	return 0;
 }
